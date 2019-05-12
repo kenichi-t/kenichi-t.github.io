@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title>Kenichi Tanaka</title>
-</head>
-<body>
-<p>fugafuga</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Kenichi Tanaka</title>
+        <link rel="stylesheet" href="css/common.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/jquery.ba-hashchange.js"></script>
+        <script src="js/myTools.js"></script>
+        <script>
+            $(function(){
+                $(window).hashchange(function(){
+                    var sources = $("a[href=" + location.hash + "] source");
+                    var src = (sources.length == 1) ? sources[0].src : "articles/top.html";
+                    $("#main").load(src, null, function(){ myTools.section.initialize("main", src); });
+                });
+                $(window).hashchange();
+                myTools.document.setLastupdate(document);
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Kenichi Tanaka</h1>
+        </header>
+        <div id="container">
+            <section id="main"></section>
+        </div>
+        <nav>
+            <ul>
+                <h3>Other</h3>
+                <li><a href="#link"   ><source src="articles/link.html">Link</a></li>
+                <li><a href="#profile"><source src="articles/profile.html">Profile</a></li>
+                <li><a href="#about"  ><source src="articles/about.html">About this site</a></li>
+            </ul>
+        </nav>
+        <footer>
+            <p>Last update : <span id="lastupdate"></span></p>
+        </footer>
+    </body>
 </html>
+
