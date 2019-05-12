@@ -12,7 +12,7 @@
             $(function(){
                 $(window).hashchange(function(){
                     var sources = $("a[href=" + location.hash + "] source");
-                    var src = (sources.length == 1) ? sources[0].src : "articles/top.html";
+                    var src = (sources.length == 1) ? sources[0].src : "articles/about.html";
                     $("#main").load(src, null, function(){ myTools.section.initialize("main", src); });
                 });
                 $(window).hashchange();
